@@ -265,9 +265,17 @@
     </style>
 
     <script type="text/javascript">
+    (function ($) {
+    $.fn.visibleToggle = function () {
+    return this.css("visibility", function (i, visible) {
+    return visible == "visible" ? "hidden" : "visible";
+    });
+    };
+    })(jQuery);
+
         $(function () {
             $("button#furigana").click(function () {
-                $("rt").toggle();
+                $("rt").visibleToggle();
             });
         });
     </script>
